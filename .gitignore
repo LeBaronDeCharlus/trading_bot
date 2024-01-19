@@ -1,0 +1,5 @@
+.venv
+.git
+.envrc
+__pycache__
+db.sqlite3
