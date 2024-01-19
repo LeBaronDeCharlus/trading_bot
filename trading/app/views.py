@@ -23,6 +23,8 @@ def ping(request):
 def trade(request):
     trade = Trade(key=key, secret=secret, sandbox=True)
     user = User(key=key, secret=secret, sandbox=True)
+
+    size = '0.0006'
     
     if request.method == 'POST' :
         data = json.loads(request.body)
@@ -37,7 +39,7 @@ def trade(request):
                 orderType='mkt',
                 symbol='PF_XBTUSD',
                 side='buy',
-                size='0.003'
+                size=size
             )
             #order = Order.objects.create(order_id=long_order['clientOrderId'], order_direction="long", order_amount_open=long_order['origQty'], order_amount=long_order['origQty'])
             #order.save()
@@ -49,7 +51,7 @@ def trade(request):
                 orderType='mkt',
                 symbol='PF_XBTUSD',
                 side='sell',
-                size='0.003'
+                size=size
             )
             #order = Order.objects.create(order_id=short_order['clientOrderId'], order_direction="short", order_amount_open=short_order['origQty'], order_amount=short_order['origQty'])
             #order.save()
@@ -74,7 +76,7 @@ def trade(request):
                             orderType='mkt',
                             symbol='PF_XBTUSD',
                             side=side,
-                            size='0.003'
+                            size=size
                         )
             print(close_position)
             return JsonResponse(close_position)
@@ -86,3 +88,14 @@ def trade(request):
         res = user.get_open_positions()
         print(res)
         return JsonResponse(res)
+
+@csrf_exempt
+def account(request):
+    user = User(key=key, secret=secret, sandbox=True)
+           
+    ##########################
+    # GET ACCOUNT INFO
+    ##########################
+    res = user.get_wallets()
+    print(res)
+    return JsonResponse(res['accounts']['flex']['balanceValue'], safe=False)
