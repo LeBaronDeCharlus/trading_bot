@@ -41,6 +41,7 @@ def trade(request):
             )
             #order = Order.objects.create(order_id=long_order['clientOrderId'], order_direction="long", order_amount_open=long_order['origQty'], order_amount=long_order['origQty'])
             #order.save()
+            print(long_order)
             return JsonResponse(long_order)
 
         if action == "short_entry" :
@@ -52,6 +53,7 @@ def trade(request):
             )
             #order = Order.objects.create(order_id=short_order['clientOrderId'], order_direction="short", order_amount_open=short_order['origQty'], order_amount=short_order['origQty'])
             #order.save()
+            print(short_order)
             return JsonResponse(short_order)
 
 
@@ -74,6 +76,7 @@ def trade(request):
                             side=side,
                             size='0.003'
                         )
+            print(close_position)
             return JsonResponse(close_position)
             
     else :
@@ -81,5 +84,5 @@ def trade(request):
         # GET POSITIONS
         ##########################
         res = user.get_open_positions()
+        print(res)
         return JsonResponse(res)
-        
