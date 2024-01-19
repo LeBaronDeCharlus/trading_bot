@@ -1,3 +1,3 @@
 source .venv/bin/activate
-export KEY="/y5oSjMDOc05kHmHp8uqEF1O+CJayuPMmfR9yUio9C8s673L+zoNUMTB"
-export SECRET="rybe0zv2VXWY5m2NQ0nN8TaSnq8VYcX9033GKzI2sUPoPzn7zMn1ddrDrgnEiZ0bdHuXBIN4E8puPMwWT0VsxtHy"
+export KEY="****"
+export SECRET="****"
