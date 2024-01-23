@@ -1,3 +1,7 @@
 source .venv/bin/activate
 export KEY="****"
 export SECRET="****"
+export SPOT_KEY="****"
+export SPOT_SECRET="****"
+export SANDBOX="****"
+
